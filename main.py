@@ -22,11 +22,8 @@ with open(path, encoding='utf8') as file:
         for i in a:
             d = {}
             l = list(i.values())
-            d[l[0]] = {'quantity': int(l[1].strip()) * (person_count), 'measure': l[2].strip()}
+            d[l[0]] = {'quantity': int(l[1].strip()), 'measure': l[2].strip()}
             print(d)
-    pprint(get_shop_list_by_dishes('Фахитос', 1))
-
-
-
+    pprint(get_shop_list_by_dishes('Омлет', 1))
 
 
