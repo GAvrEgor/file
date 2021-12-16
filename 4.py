@@ -22,7 +22,7 @@ path1 = Path('total', '1.txt')
 path2 = Path('total', '2.txt')
 path3 = Path('total', '3.txt')
 
-count_line={}
+count_line = {}
 with open(path1, encoding='utf8') as file_1:
     file_line = 0
     for l1 in file_1:
@@ -41,18 +41,20 @@ with open(path3, encoding='utf8') as file_3:
 sorted_count_line = sorted(count_line.items(), key=lambda x: x[1])
 # print(dict(sorted_count_line))
 d_sorted = dict(sorted_count_line)
+
+
 def write():
-    for key, value in d_sorted.items():
-        if key == '1.txt':
-            print(f'{key}\n {value}')
+    for num, item in enumerate(list(d_sorted),1):
+        if item == '1.txt':
+            print(f'{item}\n {num}')
             read('1.txt', Path('total', '1.txt'))
-        elif key == '2.txt':
-            print(f'{key}\n {value}')
+        elif item == '2.txt':
+            print(f'{item}\n {num}')
             read('2.txt', Path('total', '2.txt'))
-        elif key == '3.txt':
-            print(f'{key}\n {value}')
+        elif item == '3.txt':
+            print(f'{item}\n {num}')
             read('3.txt', Path('total', '3.txt'))
 
-with open('4.txt', 'w') as file_4:
+with open('4.txt', 'w', encoding='utf8') as file_4:
     with redirect_stdout(file_4):
         write()
