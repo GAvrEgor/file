@@ -23,30 +23,15 @@ with open(path, encoding='utf8') as file:
         for dish in dishes:
             for item in (cook_book[dish]):
                 items_list = dict([(item['ingredient_name'], {'measure': item['measure'], 'quantity': int(item['quantity'])*int(person_count)})])
-                pprint(items_list)
+                # pprint(items_list)
                 if ingradient_list.get(item['ingredient_name']):
-                    extra_item = (int(ingradient_list[item[ingredient_name]]['quantity']) +
-                                  int(items_list[item[ingredient_name]]['quantity']))
-                    ingradient_list[item[ingredient_name]]['quantity'] = extra_item
+                    extra_item = (int(ingradient_list[item['ingredient_name']]['quantity']) +
+                                  int(items_list[item['ingredient_name']]['quantity']))
+                    ingradient_list[item['ingredient_name']]['quantity'] = extra_item
+                    # pprint(items_list)
                 else:
                     ingradient_list.update(items_list)
-
-
-    get_shop_list_by_dishes(['Омлет'], 1)
-
-
-
-
-
-        # #print(cook_book[dish_name])# меню к блюд
-    #     #menu - список блюд
-    #     menu[dish]
-    #     recipe = cook_book[dish]   # состав блюда
-    #     for i in recipe:
-    #         d = {}
-    #         l = list(i.values())
-    #         d[l[0]] = {'quantity': int(l[1].strip()) * int(person_count), 'measure': l[2].strip()}
-    #         print(d)
-
+        pprint(ingradient_list)
+    get_shop_list_by_dishes(['Запеченный картофель', 'Запеченный картофель'], 2)
 
 
